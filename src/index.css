@@ -1,0 +1,13 @@
+header {
+    padding-bottom: 1px ; 
+}
+section {
+    padding-bottom: 1px ;
+}
+button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.width {
+    width: 300px;
+}
