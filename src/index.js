@@ -22,7 +22,7 @@ class App extends Component {
     }
     // localStorage.setItem(key,value) for keeping data in local storage
     // localStorage.getItem(key) for getting data from local storage
-    componentDidMount () {
+    componentDidMount() {
         if(localStorage.getItem("cards")) {
             this.setState({cards: JSON.parse(localStorage.getItem("cards"))})
         } else {
@@ -39,7 +39,7 @@ class App extends Component {
         return returned;
     }
 
-    componentDidUpdate () {
+    componentDidUpdate() {
         if(this.state.titleVerification) {
             setTimeout(() => {
                 this.setState({titleVerification: ""})
@@ -74,8 +74,8 @@ class App extends Component {
         this.setState({
             cards: updatedCards,
             creating: false,
-            onane:"",
-            content:"",
+            onane: "",
+            content: "",
         });
     }
 
@@ -88,7 +88,7 @@ class App extends Component {
             selectedCard: cardId,
             onane:cardOnane,
             content:cardContent,
-            editing: true ,
+            editing: true,
         });
     }
 
@@ -171,16 +171,28 @@ class App extends Component {
                     onaneValue={this.state.onane}
                     contentValue={this.state.content}
                 />
-                <button type="button" className="btn btn-outline-danger my-3  center" onClick={this.saveEditingHandler }>edite</button>
-                <button  type="button" className="btn btn-outline-danger my-3 center " onClick={this.backEditeHandler }>back</button>
-                <button  type="button" className="btn btn-outline-danger my-3 center " onClick={this.deleteHandler }>delete</button>
+                <button
+                    type="button" className="btn btn-outline-danger my-3  center" 
+                    onClick={this.saveEditingHandler }>
+                    edite
+                </button>
+                <button  
+                    type="button" className="btn btn-outline-danger my-3 center " 
+                    onClick={this.backEditeHandler }>
+                    back
+                </button>
+                <button  
+                    type="button" className="btn btn-outline-danger my-3 center " 
+                    onClick={this.deleteHandler }>
+                    delete
+                </button>
             </div>
         );
     }
 
     getAddCard = () => {
         return (
-            <div  className=" mx-auto width" >
+            <div  className=" mx-auto width">
                 <h1>add note</h1>
                 <Inputs
                     changeContent={this.changeContentHandler}
@@ -188,8 +200,16 @@ class App extends Component {
                     onaneValue={this.state.onane}
                     contentValue={this.state.content}
                 />
-                <button className="btn btn-outline-danger my-3 center" onClick={this.saveCardHandler }>save</button>
-                <button className="btn btn-outline-danger my-3 center" onClick={this.backAddHandler }>back</button>
+                <button 
+                    className="btn btn-outline-danger my-3 center" 
+                    onClick={this.saveCardHandler}>
+                    save
+                </button>
+                <button 
+                    className="btn btn-outline-danger my-3 center" 
+                    onClick={this.backAddHandler}>
+                    back
+                </button>
             </div>
         );
     }
@@ -205,15 +225,19 @@ class App extends Component {
             <>
                 <header className=" text-center bg-danger">
                     <h4> JAGU notes</h4>
-                        {
+                    {
                         this.state.titleVerification && (
                             <div className="neededTitle ">
                                 <h4>{this.state.titleVerification}</h4>
                             </div>
-                        )} 
+                        )
+                    } 
                 </header>
                 <section className="container-fluid  bg-dark text-white text-center ">
-                    <button  className="btn btn-outline-danger my-3 center" onClick={this.addCardHandler}> + </button>
+                    <button  className="btn btn-outline-danger my-3 center" 
+                        onClick={this.addCardHandler}>
+                        + 
+                    </button>
                     <Preview >
                         { this.matching()}
                     </Preview>
